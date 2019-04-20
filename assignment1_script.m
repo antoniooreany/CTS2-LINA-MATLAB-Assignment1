@@ -194,8 +194,10 @@
 % answer = input(prompt);
 
 
+% srcFileName = 'C:\Dropbox (Personal)\EU\Studying\CTS2\Linear Algebra\Matlab\AssignmentS_CTS2_Gorshkov_Anton\1src.txt';
 
-srcFileName = 'C:\Program Files\MATLAB\R2019a\bin\src.txt';
+srcFileName = 'C:\Program Files\MATLAB\R2019a\bin\Assignments_CTS2_Gorshkov_Anton\1\src.txt';
+
 srcFileID = fopen(srcFileName,'r');
 
 xSrcStr = fgetl(srcFileID);
@@ -222,7 +224,8 @@ yDstNum = imag(complexDst);
 
 plot(xDstNum, yDstNum);
 
-dstFileName = 'C:\Program Files\MATLAB\R2019a\bin\dst.txt';
+dstFileName = 'C:\Program Files\MATLAB\R2019a\bin\Assignments_CTS2_Gorshkov_Anton\1\dst.txt';
+
 dstFileID = fopen(dstFileName, 'w');
 
 xDstStr = num2str(xDstNum);
