@@ -1,9 +1,6 @@
-function [outputArg1,outputArg2] = assignment1(inputArg1,inputArg2)
+function [] = assignment1()
 %UNTITLED8 Summary of this function goes here
 %   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 rootPath = 'C:\Program Files\MATLAB\R2019a\bin\Assignments_CTS2_Gorshkov_Anton\1\';
