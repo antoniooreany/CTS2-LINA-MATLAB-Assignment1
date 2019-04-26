@@ -1,4 +1,4 @@
-function [] = assignment1(rootPath)
+function [] = assignment1()
 
 % Write a MATLAB-function, that rotates an object O in the x-y-coordinate system of R2 by an
 % angle alpha and stretches or shrinks it by a factor lambda. Both alpha and lambda are parameters of your function.
@@ -26,7 +26,8 @@ function [] = assignment1(rootPath)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-srcFileName = strcat(rootPath,'src.txt');           % Initialize the full src file name
+% srcFileName = strcat(rootPath,'src.txt');           % Initialize the full src file name
+srcFileName = 'src.txt';                            % Initialize the full src file name
 
 % TODO: Delete redundant "+"ses in the src-file. Does it still work? If
 % don't, modify the function to work with this kind of data
@@ -38,7 +39,6 @@ ySrcStr = fgetl(srcFileID);                         % Read the Y-coordinates fro
 fclose(srcFileID);                                  % Close the src file
 xSrcNum = str2num(xSrcStr);                         % Convert X-coordinates into numbers
 ySrcNum = str2num(ySrcStr);                         % Convert Y-coordinates into numbers
-
 
 complexSrc = complex(xSrcNum,ySrcNum);              % Create a src-complex array for the next transformation
 
@@ -56,22 +56,21 @@ complexDst = complexSrc * transformationComlpex;    % Applying transformation in
 xDstNum = real(complexDst);
 yDstNum = imag(complexDst);
 
+hold on;            % retain plots in the current axes so that new plots added to the axes do not delete existing plots.
 plot(complexDst);                                   % Draw the dst-object
 
-dstFileName = strcat(rootPath,'dst.txt');           % Initialize the full src file name
-
+% dstFileName = strcat(rootPath,'dst.txt');           % Initialize the full src file name
+dstFileName = 'dst.txt';                            % Initialize the full src file name
 dstFileID = fopen(dstFileName, 'w');                % Open the src file for reading
-
-xDstStr = num2str(xDstNum);                         % Convert X-coordinates into strings
-yDstStr = num2str(yDstNum);                         % Convert Y-coordinates into strings
-
-dstData = [xDstNum; yDstNum];                       % Create dst-coordinates matrix 
+dstData = [xDstNum; yDstNum];                       % Create dst-coordinates matrix
 
 % TODO: Format the table in the dst-file
 
 fprintf(dstFileID,'%12s %12s\n','xDstStr','yDstStr');   % Write the header into dst-file
 fprintf(dstFileID,'%6.6f %6.6f\n',dstData);             % Write the coordinates into dst-file
 fclose(dstFileID);                                  % Close dst-file
+
+hold off;       % set the hold state to off so that new plots added to the axes clear existing plots and reset all axes properties.
 
 end
 
