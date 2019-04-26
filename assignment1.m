@@ -22,13 +22,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [] = assignment1(varargin)
+
+srcFileName = 'src.txt';                                           % src file path initialization
+dstFileName = 'dst.txt';                                           % dst file path initialization
+
 %%%%% Setting default values in case when no parameters are passed %%%%%%%%%%%%%%%%%%%%%
 if nargin < 2
-    srcFileName = 'src.txt';                                       % set default src file path
-    dstFileName = 'dst.txt';                                       % set default dst file path
+    transfMagn = 2;                                                % set default transformation magnitude initialization
+    transfAngleDeg = 45;                                           % set default transformation angle in degree initialization
 else
-    srcFileName = varargin{1};                                     % set src file path from the function parameters
-    dstFileName = varargin{2};                                     % set src file path from the function parameters
+    transfMagn = varargin{1};                                      % set src file path from the function parameters
+    transfAngleDeg = varargin{2};                                  % set src file path from the function parameters
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,8 +50,6 @@ plot(complexSrc);                                                  % Draw the sr
 disp('Press any key for transformation')                           % Displaying 'Press any key for transformation'
 pause;                                                             % Wait for the pressing any key. Meanwhile we can see to the untransformed object
 
-transfMagn = 2;                                                    % Transformation magnitude initialization
-transfAngleDeg = 45;                                               % Transformation angle in degree initialization
 transfAngleRad = deg2rad(transfAngleDeg);                          % Transformation angle in degree into radians convertion
 transfComlpex = transfMagn*exp(transfAngleRad*1i);                 % Transformation comlpex initialization
 
