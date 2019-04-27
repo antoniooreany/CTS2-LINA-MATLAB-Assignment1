@@ -62,10 +62,47 @@ plot(complexDst);                                                  % Draw the ds
 axis equal;                                                        % use equal data unit lengths along each axis.
 
 dstFileID = fopen(dstFileName, 'w');                               % Open the src file for reading
+
+% vertices = zeros;
+% for i = 1:12
+%     vertices(i) = i;
+% end    
 dstData = [xDstNum; yDstNum];                                      % Create dst-coordinates matrix
 
-fprintf(dstFileID,'%8s               %8s\n','xDstStr','yDstStr');  % Write the header into dst-file
-fprintf(dstFileID,'%6.6f              %6.6f\n',dstData);           % Write the coordinates into dst-file
+% dstDataRot = rot90(dstData,1);
+
+% TODO create an array V1, V2, V3, ... V12
+
+% nums = 1:12;
+% vs = 
+% numStrings = num2str(nums);
+% vertices = strcat('v', numStrings);
+% disp(vertices);
+
+% Len = length(xSrcStr);
+
+
+% Len = 12;
+% vertices = compose('V%d', 1:Len);
+
+% TODO print this array
+% TODO write into dstFileID
+
+% disp(vertices);
+% A = cell2mat(vertices);
+% vertices = ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9', 'V10', 'V11', 'V12'];
+% fprintf('%10s           ', A);
+% s = ['v','v','v','v','v','v','v','v','v','v','v','v'];
+% d = 1:12;
+% fprintf('%s%d', s, d);
+% fprintf('\n');
+fprintf('%10.3f', dstData(1,:));
+fprintf('\n');
+fprintf('%10.3f', dstData(2,:));
+fprintf('\n');
+
+
+
 fclose(dstFileID);                                                 % Close dst-file
 
 hold off;                                                          % set the hold state to off so that new plots added to the axes clear existing plots and reset all axes properties.
