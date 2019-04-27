@@ -63,45 +63,17 @@ axis equal;                                                        % use equal d
 
 dstFileID = fopen(dstFileName, 'w');                               % Open the src file for reading
 
-% vertices = zeros;
-% for i = 1:12
-%     vertices(i) = i;
-% end    
-dstData = [xDstNum; yDstNum];                                      % Create dst-coordinates matrix
+len = length(xSrcNum);                                             % Find the number of vertices
+vertices = 1:len;                                                  % Initialize vertices names
 
-% dstDataRot = rot90(dstData,1);
+dstData = [vertices; xDstNum; yDstNum];                            % Create dst-coordinates matrix
 
-% TODO create an array V1, V2, V3, ... V12
-
-% nums = 1:12;
-% vs = 
-% numStrings = num2str(nums);
-% vertices = strcat('v', numStrings);
-% disp(vertices);
-
-% Len = length(xSrcStr);
-
-
-% Len = 12;
-% vertices = compose('V%d', 1:Len);
-
-% TODO print this array
-% TODO write into dstFileID
-
-% disp(vertices);
-% A = cell2mat(vertices);
-% vertices = ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9', 'V10', 'V11', 'V12'];
-% fprintf('%10s           ', A);
-% s = ['v','v','v','v','v','v','v','v','v','v','v','v'];
-% d = 1:12;
-% fprintf('%s%d', s, d);
-% fprintf('\n');
-fprintf('%10.3f', dstData(1,:));
-fprintf('\n');
-fprintf('%10.3f', dstData(2,:));
-fprintf('\n');
-
-
+fprintf(dstFileID, '%9.dV', dstData(1,:));                         % Print the vertices numbers of the transformed object         
+fprintf(dstFileID, '\n');                                          
+fprintf(dstFileID, '%10.3f', dstData(2,:));                        % Print the x-values of the transformed object
+fprintf(dstFileID, '\n');
+fprintf(dstFileID, '%10.3f', dstData(3,:));                        % Print the y-values of the transformed object
+fprintf(dstFileID, '\n');
 
 fclose(dstFileID);                                                 % Close dst-file
 
